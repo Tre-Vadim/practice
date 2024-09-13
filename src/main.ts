@@ -14,9 +14,6 @@ light.angle = Math.PI / 16
 light.castShadow = true
 scene.add(light)
 
-// const helper = new THREE.SpotLightHelper(light)
-// scene.add(helper)
-
 new RGBELoader().load('img/venice_sunset_1k.hdr', (texture) => {
   texture.mapping = THREE.EquirectangularReflectionMapping
   scene.environment = texture
@@ -49,8 +46,6 @@ lensflare.addElement(new LensflareElement(textureFlare0, 1000, 0))
 light.add(lensflare)
 
 new GLTFLoader().load('models/suzanne_scene.glb', (gltf) => {
-  console.log(gltf)
-
   const suzanne = gltf.scene.getObjectByName('Suzanne') as THREE.Mesh
   suzanne.castShadow = true
 
