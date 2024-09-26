@@ -10,6 +10,7 @@
     "deploy": "gh-pages -d ./dist"
   },
   "devDependencies": {
+    "@dimforge/rapier3d-compat": "^0.14.0",
     "@types/three": "^0.168.0",
     "jeasings": "^0.0.16",
     "three": "^0.168.0",
