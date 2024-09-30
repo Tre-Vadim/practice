@@ -36,7 +36,6 @@ export default class Eve extends Group {
     jump.animations[0].tracks = jump.animations[0].tracks.filter(function (e) {
       return !e.name.endsWith('.position')
     })
-    console.log(jump.animations[0].tracks)
     animationActions['jump'] = this.mixer.clipAction(jump.animations[0])
     animationActions['pose'] = this.mixer.clipAction(pose.animations[0])
 
