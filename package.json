@@ -15,6 +15,10 @@
     "jeasings": "^0.0.16",
     "three": "^0.168.0",
     "typescript": "^5.5.3",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "vite-plugin-top-level-await": "^1.4.4"
+  },
+  "dependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
