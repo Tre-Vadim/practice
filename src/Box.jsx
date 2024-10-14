@@ -1,14 +1,18 @@
 import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
 
 export const Box = (props) => {
-  const instanceRef = useRef(null);
-  const materialRef = useRef(null);
-  console.log('instanceRef', instanceRef);
-  console.log('materialRef', materialRef);
+  const ref = useRef(null);
+
+  useFrame((_, delta) => {
+    ref.current.rotation.x += delta;
+    ref.current.rotation.y += 0.5 * delta;
+  });
+
   return (
-    <mesh ref={instanceRef} {...props}>
+    <mesh ref={ref} {...props}>
       <boxGeometry />
-      <meshBasicMaterial ref={materialRef} color={0x00ff00} wireframe />
+      <meshBasicMaterial color={0x00ff00} wireframe />
     </mesh>
   );
 };
