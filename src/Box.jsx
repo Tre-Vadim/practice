@@ -10,7 +10,13 @@ export const Box = (props) => {
   });
 
   return (
-    <mesh ref={ref} {...props}>
+    <mesh
+      ref={ref}
+      {...props}
+      onPointerDown={(event) => console.log('event', event)}
+      onPointerOver={(event) => console.log('event - over', event)}
+      onPointerOut={(event) => console.log('event - out', event)}
+      onUpdate={(self) => console.log('self', self)}>
       <boxGeometry />
       <meshBasicMaterial color={0x00ff00} wireframe />
     </mesh>
