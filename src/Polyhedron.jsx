@@ -10,7 +10,7 @@ export const Polyhedron = (props) => {
   });
 
   return (
-    <mesh {...props} ref={ref}>
+    <mesh {...props} ref={ref} castShadow receiveShadow>
       <icosahedronGeometry args={[1, 1]} />
     </mesh>
   );

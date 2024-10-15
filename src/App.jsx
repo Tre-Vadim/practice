@@ -1,121 +1,95 @@
-import { useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Stats, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { useControls } from 'leva';
 
 import { Polyhedron } from './Polyhedron';
+import { Floor } from './Floor';
 
 function Lights() {
-  const ambientRef = useRef();
-  const directionalRef = useRef();
-  const pointRef = useRef();
-  const spotRef = useRef();
-
-  useControls('Ambient Light', {
-    visible: {
-      value: false,
-      onChange: (v) => {
-        ambientRef.current.visible = v;
-      }
-    },
-    color: {
-      value: 'white',
-      onChange: (v) => {
-        ambientRef.current.color = new THREE.Color(v);
-      }
+  const ambientCtl = useControls('Ambient Light', {
+    visible: false,
+    intensity: {
+      value: 1.0,
+      min: 0,
+      max: 1.0,
+      step: 0.1
     }
   });
 
-  useControls('Directional Light', {
-    visible: {
-      value: true,
-      onChange: (v) => {
-        directionalRef.current.visible = v;
-      }
-    },
+  const directionalCtl = useControls('Directional Light', {
+    visible: true,
     position: {
-      x: 1,
-      y: 1,
-      z: 1,
-      onChange: (v) => {
-        directionalRef.current.position.copy(v);
-      }
+      x: 3.3,
+      y: 1.0,
+      z: 4.4
     },
-    color: {
-      value: 'white',
-      onChange: (v) => {
-        directionalRef.current.color = new THREE.Color(v);
-      }
-    }
+    castShadow: true
   });
 
-  useControls('Point Light', {
-    visible: {
-      value: false,
-      onChange: (v) => {
-        pointRef.current.visible = v;
-      }
-    },
+  const pointCtl = useControls('Point Light', {
+    visible: false,
     position: {
       x: 2,
       y: 0,
-      z: 0,
-      onChange: (v) => {
-        pointRef.current.position.copy(v);
-      }
+      z: 0
     },
-    color: {
-      value: 'white',
-      onChange: (v) => {
-        pointRef.current.color = new THREE.Color(v);
-      }
-    }
+    castShadow: true
   });
 
-  useControls('Spot Light', {
-    visible: {
-      value: false,
-      onChange: (v) => {
-        spotRef.current.visible = v;
-      }
-    },
+  const spotCtl = useControls('Spot Light', {
+    visible: false,
     position: {
       x: 3,
       y: 2.5,
-      z: 1,
-      onChange: (v) => {
-        spotRef.current.position.copy(v);
-      }
+      z: 1
     },
-    color: {
-      value: 'white',
-      onChange: (v) => {
-        spotRef.current.color = new THREE.Color(v);
-      }
-    }
+    castShadow: true
   });
 
   return (
     <>
-      <ambientLight ref={ambientRef} />
-      <directionalLight ref={directionalRef} intensity={2} />
-      <pointLight ref={pointRef} intensity={3} />
-      <spotLight ref={spotRef} intensity={3} />
+      <ambientLight
+        visible={ambientCtl.visible}
+        intensity={ambientCtl.intensity}
+      />
+      <directionalLight
+        visible={directionalCtl.visible}
+        position={[
+          directionalCtl.position.x,
+          directionalCtl.position.y,
+          directionalCtl.position.z
+        ]}
+        castShadow={directionalCtl.castShadow}
+        intensity={3}
+      />
+      <pointLight
+        visible={pointCtl.visible}
+        position={[
+          pointCtl.position.x,
+          pointCtl.position.y,
+          pointCtl.position.z
+        ]}
+        castShadow={pointCtl.castShadow}
+        intensity={3}
+      />
+      <spotLight
+        visible={spotCtl.visible}
+        position={[spotCtl.position.x, spotCtl.position.y, spotCtl.position.z]}
+        castShadow={spotCtl.castShadow}
+        intensity={3}
+      />
     </>
   );
 }
-
 export default function App() {
   return (
-    <Canvas camera={{ position: [4, 4, 1.5] }}>
+    <Canvas camera={{ position: [4, 4, 1.5] }} shadows>
       <Lights />
       <Polyhedron
         name="meshBasicMaterial"
         position={[-3, 1, 0]}
-        material={
-          new THREE.MeshBasicMaterial({ color: 'yellow', flatShading: true })
-        }
+        material={new THREE.MeshBasicMaterial({ color: 'yellow' })}
       />
       <Polyhedron
         name="meshNormalMaterial"
@@ -139,9 +113,9 @@ export default function App() {
           })
         }
       />
+      <Floor />
       <OrbitControls target={[2, 2, 0]} />
       <axesHelper args={[5]} />
-      <gridHelper />
       <Stats />
     </Canvas>
   );
