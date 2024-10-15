@@ -21,6 +21,7 @@ export const Polyhedron = ({ position, polyhedron }) => {
       }}
       geometry={polyhedron[count]}>
       <meshBasicMaterial color={'lime'} wireframe />
+      <axesHelper />
     </mesh>
   );
 };
