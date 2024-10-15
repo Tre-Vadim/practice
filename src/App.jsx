@@ -19,7 +19,8 @@ const App = () => {
       <Polyhedron position={[0.75, 0.75, 0]} polyhedron={polyhedron} />
       <OrbitControls />
       <Stats />
-      <axesHelper />
+      <axesHelper args={[2]} />
+      <gridHelper args={[20, 20, 0xff0000, 'teal']} />
     </Canvas>
   );
 };
