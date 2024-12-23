@@ -1,3 +1,3 @@
-# Practice with technologies
+# 3d-animation-threejs-practice
 
-- [3D animation React Three Fiber](https://github.com/Tre-Vadim/practice/tree/3d-animation-R3F)
+https://tre-vadim.github.io/3d-animation-threejs-practice/
