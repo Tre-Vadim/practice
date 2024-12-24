@@ -5,3 +5,4 @@
 - [Pure NodeJS](https://github.com/Tre-Vadim/practice/tree/nodejs_pure)
 - [NestJS](https://github.com/Tre-Vadim/practice/tree/nestjs)
 - [TypeScript](https://github.com/Tre-Vadim/practice/tree/typescript)
+- [ReactJS + JS](https://github.com/Tre-Vadim/practice/tree/reactjs-js)
