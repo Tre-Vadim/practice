@@ -1,7 +1,11 @@
-# Practice with technologies
+# JS-practice
+The React APP to practice with features in JS and ReactJS
 
-- [3D animation React Three Fiber](https://github.com/Tre-Vadim/practice/tree/3d-animation-R3F)
-- [3D animation ThreeJS](https://github.com/Tre-Vadim/practice/tree/3d-animation-threejs)
-- [Pure NodeJS](https://github.com/Tre-Vadim/practice/tree/nodejs_pure)
-- [NestJS](https://github.com/Tre-Vadim/practice/tree/nestjs)
-- [TypeScript](https://github.com/Tre-Vadim/practice/tree/typescript)
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
