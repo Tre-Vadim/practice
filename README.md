@@ -8,3 +8,4 @@
 - [ReactJS + JS](https://github.com/Tre-Vadim/practice/tree/reactjs-js)
 - [Docker](https://github.com/Tre-Vadim/practice/tree/docker)
 - [ExpressJS](https://github.com/Tre-Vadim/practice/tree/expressjs)
+- [NextJS v15](https://github.com/Tre-Vadim/practice/tree/nextjs-v.15)
